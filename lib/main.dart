@@ -22,9 +22,9 @@ class MyApp extends StatelessWidget {
 
     MaterialTheme theme = MaterialTheme(textTheme);
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Give & Thanks',
       theme: brightness == Brightness.light ? theme.light() : theme.dark(),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: const MyHomePage(title: 'Give & Thanks'),
     );
   }
 }
@@ -94,11 +94,52 @@ class _MyHomePageState extends State<MyHomePage> {
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
+      bottomNavigationBar: BottomAppBar(
+        color: Theme.of(context).colorScheme.surfaceVariant,
+        child: Row(
+          children: <Widget>[
+            IconTheme(
+              data: IconThemeData(color: Theme.of(context).colorScheme.onSurfaceVariant),
+              child: Row(
+                children: <Widget>[
+                  IconButton(
+                    tooltip: 'public',
+                    icon: const Icon(Icons.public),
+                    onPressed: () {},
+                  ),
+                  IconButton(
+                    tooltip: 'private',
+                    icon: const Icon(Icons.people),
+                    onPressed: () {},
+                  ),
+                  IconButton(
+                    tooltip: 'qr code',
+                    icon: const Icon(Icons.qr_code_2),
+                    onPressed: () {},
+                  ),
+                  IconButton(
+                    tooltip: 'settings',
+                    icon: const Icon(Icons.settings),
+                    onPressed: () {},
+                  ),
+                ],
+              ),
+            ),
+            const Spacer(),
+            FloatingActionButton(
+              onPressed: _incrementCounter,
+              tooltip: 'Increment',
+              elevation: 0,
+              backgroundColor: Theme.of(context).colorScheme.secondary,
+              child: IconTheme(
+                data: IconThemeData(color: Theme.of(context).colorScheme.onSecondary),
+                child: const Icon(Icons.add),
+              ),
+            ),
+          ]
+        ),
+
+      ),
     );
   }
 }
